@@ -115,6 +115,7 @@ goodColumnNames=function(string, stopWords=c(), sep= ' '){
 
 ##: goodLabelNames() - Capitalises first letter in each word unless word is 3 or less letters in size, then leaves as is
 goodLabelNames=function(string, stopWords=c(), sep= '_'){
+  string = gsub("\\.","_",string)
   words<-stringToWords(string, sep = sep)
   for(i in 1:length(words)){
     index<-which(nchar(words)>3)
