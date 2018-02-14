@@ -158,3 +158,9 @@ is.decimal<-function(x){
   tmp = abs(mod0(x,floor(x)))
   ifelse(is.natural(tmp) | isZero(tmp) ,F,T)
 }
+
+##: is.discrete() - checks to see if a single (|) value is char or factor
+is.discrete<-function(x){is.factor(x) | is.character(u)}
+
+##: is.continuous() - checks to see if value is not discrete
+is.continuous<-function(x){!is.discrete(x)}
