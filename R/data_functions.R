@@ -120,16 +120,16 @@ cross_tab_df = function(var1, var2, margin = NULL){
 #' @return Table object of the form form prop.table, but formatted to be a percentage to 1 decimal place.
 #' @examples
 #'
-prop_plot = function(data, var, color = "purple4"){
-  prop(data[,var]) %>%
-    ggplot(aes(var, Prop)) +
-    geom_col(position = "dodge", fill = col) +
-    scale_y_continuous(labels = scales::percent_format) +
-    ylab("Proportion") + xlab(var) +
-    theme(panel.background = element_blank(),
-          axis.text = element_text(size = 16),
-          axis.text.x = element_text(angle = 90),
-          axis.title = element_text(size= 16))
-}
+# prop_plot = function(data, var, color = "purple4"){
+#   prop(data[,var]) %>%
+#     ggplot(aes(var, Prop)) +
+#     geom_col(position = "dodge", fill = col) +
+#     scale_y_continuous(labels = scales::percent_format) +
+#     ylab("Proportion") + xlab(var) +
+#     theme(panel.background = element_blank(),
+#           axis.text = element_text(size = 16),
+#           axis.text.x = element_text(angle = 90),
+#           axis.title = element_text(size= 16))
+# }
 
 

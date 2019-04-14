@@ -19,8 +19,8 @@ Combine unquoted items into a vector of character strings
 Works the same way that c() does for all types of data types. cs() allows you to quickly create vectors of single word strings without having to use quotes.
 }
 \examples{
-> cs(a,b,a)
+cs(a,b,a)
 [1] "a" "b" "a"
-> cs(Hello, green, 99)
+cs(Hello, green, 99)
 [1] "Hello" "green" "99"
 }
