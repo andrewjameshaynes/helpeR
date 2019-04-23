@@ -111,25 +111,22 @@ cross_tab_df = function(var1, var2, margin = NULL){
   data.frame(cross_tab(var1, var2, margin))
 }
 
-
-#' 1D proportion plot
+#' @name lunique
+#' @rdname lunique
 #'
-#' @param var1 First object that can be passed to table()
-#' @param color Color as can be passed to plot(), or ggplot()
-#' @details Two variable cross tabulation of data. Output as a percentage to 1 decimal place.
-#' @return Table object of the form form prop.table, but formatted to be a percentage to 1 decimal place.
+#' @title The number of unique elements in an object
+#'
+#' @description Function to calculate the length of the numebr of unique elements in a data object.
+#'
+#' @details Just a super convenient wrapper for the length(unique(x)) combination. See ?unique for more details.
+#' @return The number of unique elements
 #' @examples
+#' lunique(iris$Species)
+#' [1] 3
 #'
-# prop_plot = function(data, var, color = "purple4"){
-#   prop(data[,var]) %>%
-#     ggplot(aes(var, Prop)) +
-#     geom_col(position = "dodge", fill = col) +
-#     scale_y_continuous(labels = scales::percent_format) +
-#     ylab("Proportion") + xlab(var) +
-#     theme(panel.background = element_blank(),
-#           axis.text = element_text(size = 16),
-#           axis.text.x = element_text(angle = 90),
-#           axis.title = element_text(size= 16))
-# }
-
-
+#' sapply(iris, lunique)
+#' Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species
+#' 35           23           43           22            3
+lunique = function(x){
+  length(unique(x))
+}
