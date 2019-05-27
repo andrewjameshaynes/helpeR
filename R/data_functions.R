@@ -130,3 +130,27 @@ cross_tab_df = function(var1, var2, margin = NULL){
 lunique = function(x){
   length(unique(x))
 }
+
+#' @name convert
+#' @rdname convert
+#'
+#' @title Strict type conversion
+#'
+#' @description Function to convert data from one class to that of another data object so that they are comparable.
+#' @param from Data object to be converted.
+#' @param to Data object with class to be converted to
+#' @details Follows R's upwards coercion logic, and is not downwards compatible, i.e, a numeric can be converted to a string, but a string, even "1", will not be converted to numeric.
+#' @return A data object with the same class as `to` parameter, if possible.
+#' @examples
+#' convert(1, "2")
+#' [1] "1"
+#' convert(T, "I'm a test string")
+#' [1] "TRUE"
+##: convertClass - convert data of class 1 to class 2, error if doesn't follow R coercion rules
+convert = function(from, to){
+  logic=c("logical", "integer", "numeric", "complex", "character", "list")
+
+  ifelse(match(class(from), logic) < match(class(to), logic),
+         eval(parse(text=paste0('as.',class(to),"(",from,")"))),
+         warning("Function cannot convert type ", class(from), " to ", class(to)))
+}
